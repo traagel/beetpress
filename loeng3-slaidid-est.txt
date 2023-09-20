@@ -1,0 +1,650 @@
+==SLIDE==
+Title: Sissejuhatus lineaarsetesse andmestruktuuridesse
+- Mis on lineaarsed andmestruktuurid?
+-- Andmestruktuurid, kus elemendid on salvestatud lineaarses järjestuses.
+-- Näited: massiivid, LinkedList, pinud, järjekorrad.
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Lineaarsete andmestruktuuride omadused
+- Massiivid:
+-- Ühetaolised elemendid salvestatud järjestikustes mälukohtades.
+-- Fikseeritud suurus ja indekspõhine.
+-- Juurdepääsu aeg: O(1), otsimise aeg: O(n) või O(log n), lisamise aeg: O(n), kustutamise aeg: O(n).
+- LinkedList:
+-- Elemendid salvestatud sõlmedena, millel on andmed ja viide järgmisele sõlmele.
+-- Tüübid: Üksik seotud nimekiri, Kahekordne seotud nimekiri.
+- Pinud:
+-- Viimane sisse, esimene välja (LIFO) järjekord.
+-- Toimingud: lisa, eemalda.
+- Järjekorrad:
+-- Esimene sisse, esimene välja (FIFO) järjekord.
+-- Toimingud: lisa järjekorda, eemalda järjekorrast.
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Lineaarsete andmestruktuuride reaalse maailma analoogiad
+- Massiivid:
+-- Kõigi õpilaste hinded klassis.
+- LinkedList:
+-- Rongikomponendid, mis on ühendatud järjestuses.
+- Pinud:
+-- Plaatide virn; viimati paigutatud plaat on esimene, mis eemaldatakse.
+- Järjekorrad:
+-- Inimesed seisavad järjekorras; esimene inimene järjekorras on esimene, kes teenindatakse.
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Lineaarsete andmestruktuuride tähtsus kaasaegses tarkvaras
+- Korralda ja töötle andmeid tõhusalt.
+- Kasutatakse paljudes arvutiteaduse rakendustes, nagu otsimine, sortimine ja andmete manipuleerimine.
+- Pakub tõhusat andmetele juurdepääsu.
+- Oluline algoritmidel, mis nõuavad konkreetseid andmetele juurdepääsu mustreid (nt LIFO pinude jaoks, FIFO järjekordade jaoks).
+- Allikas: [DZone](https://dzone.com/articles/introduction-to-linear-data-structures)
+
+==SLIDE==
+Title: Olulisus süsteemi kujundamisel
+- Lineaarsed andmestruktuurid on süsteemi kujundamise aluseks.
+-- Nad pakuvad ehituskive keerukamatele andmestruktuuridele ja algoritmidele.
+- Nende mõistmine on oluline tõhusate süsteemide kavandamiseks.
+- Kasutatakse erinevates reaalse maailma rakendustes, nagu andmebaasid, operatsioonisüsteemid ja palju muud.
+- Allikas: [upGrad](https://www.upgrad.com/blog/what-is-linear-data-structure/)
+
+==SLIDE==
+Title: Massiivid: Definitsioon
+- Mis on massiivid?
+-- Järjestikused mälukohad
+-- Kasutatakse sama tüüpi mitme üksuse salvestamiseks
+-- Indekseeritud kogum fikseeritud arvu homogeensetest andmeelementidest
+- Levinud toimingud:
+-- Sisestamine
+-- Kustutamine
+-- Läbimine
+-- Otsimine
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Massiivide omadused
+- Fikseeritud suurus: Kord deklareerituna suurus ei muutu
+-- Võib viia mälu raiskamise või puudujäägini
+- Homogeensed elemendid: Kõik elemendid on sama tüüpi
+- Järjestikused mälukohad: Elemendid on salvestatud kõrvuti asuvatesse mälukohtadesse
+- Juhuslik juurdepääs: Otsene juurdepääs mis tahes elemendile selle indeksi abil
+- Vahemälu sõbralik: Järjestikuse mälu tõttu on massiividel parem vahemälu lokaalsus
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Massiivide mälu esitus
+- Järjestikune mälu eraldamine: Elemendid salvestatakse kõrvuti asuvatesse mälukohtadesse
+- Baasaadress: Esimese elemendi aadress
+- Arvutamine: Elemendi mälu aadressi saab arvutada kasutades:
+-- Baasaadress + (indeks * andmetüübi suurus)
+- Efektiivne mälule juurdepääsu osas, kuid fikseeritud suurus võib viia mälu raiskamiseni
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Massiivi mälu eraldamine
+- Järjestikune mälu: Elementidele eraldatakse järjestikused mälu aadressid
+-- Nt, täisarvu massiivi elemendid võivad hõivata igaüks 4 baiti
+- Mälu eraldamine:
+-- Kogu mälu = Elementide arv * ühe elemendi suurus
+-- Täisarvu massiiv N elementidega = N * 4 baiti
+-- Tähemärgi massiiv N elementidega = N * 1 bait
+- Mitmemõõtmelised massiivid: Mälu eraldatakse ridade ja veergude jaoks
+-- Ridade põhine järjestus: Ridade elemente salvestatakse järjestikku
+-- Veergude põhine järjestus: Veergude elemente salvestatakse järjestikku
+- Allikas: [TutorialCup](https://tutorialcup.com/cprogramming/array-memory-allocation.htm)
+
+==SLIDE==
+Title: Vahemälu lokaalsus ja selle tähtsus
+- Mis on viite lokaalsus?
+-- Programmi kalduvus korduvalt lühikese aja jooksul juurde pääseda samadele mälu asukohtadele
+- Lokaalsuse tüübid:
+-- Ajaline lokaalsus: Konkreetsete andmete/ressursside taaskasutamine lühikese aja jooksul
+-- Ruumiline lokaalsus: Andmeelementide kasutamine lähedastes salvestuskohtades
+-- Järjestikune lokaalsus: Andmeelementidele juurdepääs järjestikku, nagu massiivides
+- Tähtsus:
+-- Süsteemid, millel on tugev lokaalsus, on kandidaadid optimeerimistehnikatele nagu vahemälu ja eelhäälestus
+-- Parandab jõudlust, vähendades mälu juurdepääsu aega
+- Allikas: [Wikipedia](https://en.wikipedia.org/wiki/Locality_of_reference)
+
+==SLIDE==
+Title: Ajaline keerukus: Juurdepääs massiivides
+--
+- Definitsioon: Ajaline keerukus elemendi juurdepääsuks massiivis.
+- Pidev aeg: O(1) keerukus.
+- Põhjus: Massiivi elemendid salvestatakse mälus järjestikku. Mis tahes elemendile saab juurde pääseda otse selle indeksi kaudu ilma iteratsiooni või otsinguta.
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Ajaline keerukus: Sisestamine massiivides
+--
+- Sisestamine lõppu: O(1) - Pidev aeg.
+- Sisestamine algusesse või kindlasse kohta: O(n) - Lineaarne aeg. Nõuab olemasolevate elementide nihutamist.
+- Sisestamine sorteeritud massiivi: O(n) - Lineaarne aeg nihutamiseks, isegi kui binaarotsingut kasutatakse positsiooni leidmiseks.
+- Märkus: Eeldab, et massiivil on piisavalt mahtu. Suuruse muutmine võib mõjutada ajalist keerukust.
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Ajaline keerukus: Kustutamine massiivides
+--
+- Kustutamine lõpust: O(1) - Pidev aeg.
+- Kustutamine algusest või keskelt: O(n) - Lineaarne aeg. Nõuab elementide nihutamist.
+- Näpunäide: Kui järjekord pole oluline, vahetage viimase elemendiga ja kustutage O(1) keerukuse jaoks.
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Massiivide eelised
+--
+- Koodi optimeerimine: Salvesta suur andmemaht vähema koodiga.
+- Lihtne kasutada: Rakenda erinevaid algoritme lihtsalt.
+- Pidev juurdepääsu aeg: O(1) mis tahes elemendile.
+- Kasutab indekseid: Alustades 0-st kuni pikkus-1.
+- Rakendab muid struktuure: Kasutatakse LinkedLists, pinus, järjekordades jne.
+- Efektiivne mälu kasutamine: Järjestikused mälukohad.
+- Allikas: [Link](https://www.thecrazyprogrammer.com/2021/05/advantages-and-disadvantages-of-array.html)
+
+==SLIDE==
+Title: Massiivide puudused
+--
+- Fikseeritud suurus: Ei saa suurust muuta (staatilised massiivid).
+- Homogeenne: Ainult üks andmetüüp massiivi kohta.
+- Raske sisestamine/kustutamine: Tänu järjestikusele mälule.
+- Indeksi piiride kontrollimata: Keeltes nagu C, võib põhjustada jooksuaegseid vigu.
+- Allikas: [Link](https://www.thecrazyprogrammer.com/2021/05/advantages-and-disadvantages-of-array.html)
+
+==SLIDE==
+Title: Massiivide levinud kasutusjuhud
+- Salvesta samat tüüpi andmeelemente
+-- Tõhus juhuslik juurdepääs
+-- Fikseeritud suurus pärast deklareerimist
+-- Kasutatakse paljudes algoritmidest ja rakendustest
+- Näited:
+-- Pildi esitus digitaalses töötluses
+-- Muude andmestruktuuride rakendamine, nagu hunnikud, räshtabelid jne.
+
+==SLIDE==
+Title: LinkedList: Definitsioon
+- Lineaarne andmestruktuur
+-- Elemente ei salvestata järjestikustes mälukohtades
+-- Elemente seotakse viidetega
+- Põhiline struktuur:
+-- Sõlm sisaldab andmevälja
+-- Viide (või link) järgmisele sõlmele nimekirjas
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/data-structures/linked-list/)
+
+==SLIDE==
+Title: LinkedList tüübid
+- Üksik seotud nimekiri
+-- Lihtsaim tüüp
+-- Iga sõlm sisaldab andmeid ja viidet järgmisele sõlmele
+-- Lubab läbimist ainult ühes suunas
+- Kahekordne seotud nimekiri
+-- Iga sõlm sisaldab andmeid, viidet järgmisele sõlmele ja viidet eelmisele sõlmele
+-- Lubab läbimist mõlemas suunas
+- Ringikujuline seotud nimekiri
+-- Viimane sõlm osutab tagasi esimesele sõlmele
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/types-of-linked-list/)
+
+==SLIDE==
+Title: Üksik seotud nimekiri
+- Koosneb sõlmedest
+-- Iga sõlmel on andmeväli
+-- Viide (link) järgmisele sõlmele
+- Lubab läbimist ainult ühes suunas
+- Tõhusad toimingud:
+-- Lisamine ja kustutamine alguses
+-- Lisamine ja kustutamine antud kohas
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/types-of-linked-list/)
+
+==SLIDE==
+Title: Kahekordne seotud nimekiri
+- Iga sõlm sisaldab:
+-- Andmeväli
+-- Viide järgmisele sõlmele
+-- Viide eelmisele sõlmele
+- Lubab läbimist mõlemas suunas
+- Tõhusad toimingud:
+-- Lisamine ja kustutamine mõlemas otsas
+-- Lisamine ja kustutamine antud kohas
+- Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/types-of-linked-list/)
+
+==SLIDE==
+Title: Ringikujuline LinkedList
+- Definitsioon: Ringikujuline LinkedList on LinkedListi variant, kus nimekirja viimane sõlm osutab tagasi esimesele sõlmele, mitte nullviitele.
+- Omadused:
+-- Ükski nimekirja sõlm ei oma nullviidet.
+-- Võib olla ühe- või kahepoolne.
+-- Kasulik rakendustes, mis nõuavad nimekirja korduvat läbimist.
+- Näiteks kasutusalad:
+-- Ringjärjekorra algoritmide rakendamine.
+-- Rakenduste haldamine, mis nõuab tsüklilist läbimist.
+
+==SLIDE==
+Title: Sentiineli või Dummy sõlmede tutvustus
+- Definitsioon: Sentiineli või dummy sõlm on abisõlm, mis lisatakse LinkedListi, mis ei sisalda mõttekat andmeid, kuid aitab lihtsustada ja optimeerida teatud nimekirja toiminguid.
+- Eelised:
+-- Lihtsustab nimekirja toimingute erijuhtumeid.
+-- Võib aidata vältida pea-sõlme erikohtlemist.
+-- Sageli kasutatakse LinkedListi algoritmide rakendamisel.
+- Levinud kasutus:
+-- Kahepoolsetes LinkedListides, et vältida servajuhtumeid sisestamisel või kustutamisel.
+-- Ringikujulistes LinkedListides alguspunkti märkimiseks.
+
+==SLIDE==
+Title: Sõlme struktuur LinkedListides
+- Põhiline struktuur:
+-- Andmeväli: Sisaldab sõlme tegelikke andmeid.
+-- Viide (või Link): Osutab nimekirja järgmisele sõlmele.
+- Kahepoolsetes LinkedListides:
+-- Kaks viidet: Üks osutab järgmisele sõlmele ja teine eelmisele sõlmele.
+- Esitus (C keeles):
+- Iga sõlm eraldatakse dünaamiliselt mälus ja need ühendatakse nimekirja moodustamiseks.
+
+==SLIDE==
+Title: Mälu eraldamine LinkedListides
+- Dünaamiline eraldamine: Sõlmede mälu eraldatakse jooksvalt, kasutades C keeles funktsioone nagu `malloc`.
+- Iga sõlme mälu:
+-- Sisaldab ruumi andmetele ja viitele (osutajale).
+-- Kahepoolsetes LinkedListides lisaruum tagasiviite jaoks.
+- Eelised:
+-- Mälu eraldatakse vajadusel, vältides raiskamist.
+-- Sõlmi saab hõlpsasti sisestada või eemaldada ilma mälu ümberjaotamise vajaduseta.
+- Puudused:
+-- Nõuab käsitsi mäluhaldust keeltes nagu C (kasutades `free`).
+-- Lisakulud täiendavate osutajate talletamise tõttu.
+
+==SLIDE==
+Title: Ajaline keerukus: Juurdepääs LinkedListides
+- Ühepoolne LinkedList:
+-- Elemendi juurdepääsuks on vajalik läbimine pea-sõlmest: O(n).
+- Kahepoolne LinkedList:
+-- Elemendi juurdepääs võib olla O(1), kui meil on otsene viide.
+-- Halvim juhtum (läbimine pea-sõlmest): O(n).
+- Märkus: Need keerukused eeldavad otseseid viiteid või indekseid. Otsing väärtuse põhjal suurendab keerukust O(n)-ni.
+
+==SLIDE==
+Title: Ajaline keerukus: Sisestamine Linked Lists'is
+--
+- Sisestamine algusesse: O(1)
+- Sisestamine keskele: O(n)
+- Sisestamine lõppu: O(n) ühepoolse Linked List'i puhul, O(1) kahepoolse Linked List'i puhul sabaviidaga
+- Linked Lists võimaldab tõhusaid sisestamistoiminguid, eriti kui positsioon on teada.
+
+==SLIDE==
+Title: Ajaline keerukus: Kustutamine Linked Lists'is
+--
+- Kustutamine algusest: O(1)
+- Kustutamine keskelt: O(n)
+- Kustutamine lõpust: O(n) ühepoolse Linked List'i puhul, O(1) kahepoolse Linked List'i puhul sabaviidaga
+- Linked Lists pakub paindlikkust kustutamistoiminguteks ilma elementide nihutamise vajaduseta.
+
+==SLIDE==
+Title: Linked Lists'i eelised
+--
+- Dünaamiline andmestruktuur: Võib kasvada ja kahaneda jooksuajal.
+- Mälu raiskamist pole: Tõhus mälu kasutamine.
+- Rakendamine: Sobib pinu ja järjekordade rakendamiseks.
+- Sisestamine ja kustutamine: Lihtsamad toimingud ilma elementide nihutamiseta.
+- Tõhus suurte andmete jaoks: Võib dünaamiliselt kasvada ja kahaneda.
+- Skaleeritavus: Võimalus lisada või eemaldada elemente mis tahes positsioonilt.
+
+==SLIDE==
+Title: Linked Lists'i puudused
+--
+- Mälu kasutamine: Vajab lisamälu viitade jaoks.
+- Läbimine: Aeganõudvam võrreldes massiividega.
+- Otsene juurdepääs: Pole võimalik, erinevalt massiividest.
+- Tagurpidi läbimine: Pole võimalik ühepoolsetes Linked Lists'ides.
+- Juhuslik juurdepääs: Pole võimalik dünaamilise mälu eraldamise tõttu.
+- Madalam efektiivsus: Teatud toimingud võivad olla aeglasemad.
+- Keeruline rakendamine: Keerulisem kui massiivid.
+
+==SLIDE==
+Title: Massiivide ja Linked Lists'i võrdlus
+- Mälu eraldamine: Massiivid on järjestikused, Linked Lists on hajutatud.
+- Sisestamine ja kustutamine: Tõhusam Linked Lists'is.
+- Juhuslik juurdepääs: Massiivid pakuvad O(1), Linked Lists pakub O(n).
+- Mälu kasutamine: Massiivid on fikseeritud suurusega, Linked Lists on dünaamiline.
+- Mälu järjestikusus: Massiividel on eelis vahemälu jõudluse osas.
+- Rakendamise keerukus: Linked Lists on keerulisem kui massiivid.
+- Valik sõltub rakenduse konkreetsetest nõuetest.
+
+==SLIDE==
+Title: LinkedListide levinud kasutusjuhud
+- Dünaamiline mälu eraldamine: Erinevalt massiividest saavad linked listid kergesti suurust muuta.
+- Pinude ja järjekordade rakendamine: LinkedListid toimivad alusstruktuurina.
+- Lihtne lisamine/kustutamine: Elemente saab lisada või eemaldada ilma uuesti eraldamise või ümberkorraldamiseta.
+- Graafikute rakendamine: Graafikute kõrvutiasetuse nimekirja esitus kasutab linked liste.
+- Brauseri vahemälu: Brauserid kasutavad linked liste veebilehtede edasi- ja tagasiliikumise rakendamiseks.
+Allikas: [Link](https://www.geeksforgeeks.org/applications-of-linked-list-data-structure/)
+
+==SLIDE==
+Title: Pinud: Definitsioon
+- Pinu on abstraktne andmetüüp, mis seab piiranguid, kus saate elemente lisada ja eemaldada.
+- Analoogia: Mõelge pinust kui raamatute virnast; saate eemaldada ainult ülemise raamatu ja lisada uue raamatu peale.
+- Pinusid saab rakendada erinevate andmestruktuuridega, nagu linked listid või massiivid.
+Allikas: [Brilliant Math & Science Wiki](https://brilliant.org/wiki/stacks/)
+
+==SLIDE==
+Title: Pinude omadused
+- LIFO põhimõte: Viimane sisse, esimene välja, mis tähendab, et viimati lisatud element eemaldatakse esimesena.
+- Ülemine ja alumine: Ots, kus lisamine või eemaldamine toimub, on "ülemine". Vastupidine ots on "alumine".
+- Pinu ületäitumine: Tekib, kui proovitakse lisada element täis pinusse.
+- Pinu alatäitumine: Tekib, kui proovitakse eemaldada element tühjast pinust.
+Allikas: [Brilliant Math & Science Wiki](https://brilliant.org/wiki/stacks/)
+
+==SLIDE==
+Title: Toimingud pinudes
+- Lisa (Push): Lisab elemendi pinu tippu.
+- Eemalda (Pop): Eemaldab pinu kõige ülemise elemendi.
+- Piilu/Ülemine (Peek/Top): Pääseb juurde kõige ülemisele elemendile seda eemaldamata.
+Allikas: [Interneti otsing](https://www.example.com)
+
+==SLIDE==
+Title: Lisa toiming (Push Operation)
+- Lisa (Push) lisab uue elemendi pinu tippu.
+- Kui pinu on täis, tekib pinu ületäitumise olukord.
+- Lisa (push()) algoritm:
+-- Kontrolli, kas pinu on täis.
+-- Kui ei ole, suurenda ülemise viida.
+-- Määra uus väärtus pinu tippu.
+Allikas: [javatpoint](https://www.javatpoint.com/push-and-pop-operation-in-stack-in-data-structure)
+
+==SLIDE==
+Title: Pop toiming
+- Definitsioon:
+ -- Eemaldab pinu ülemise elemendi
+ -- Tagastab eemaldatud elemendi
+ -- Kui pinu on tühi, tekib alavoolu olukord
+- Näide:
+ -- Kaaluge pinu: [1, 2, 3, 4, 5]
+ -- Pärast pop toimingut muutub pinu: [1, 2, 3, 4]
+ -- Eemaldatud element on: 5
+
+==SLIDE==
+Title: Peek toiming
+- Definitsioon:
+ -- Tagastab ülemise elemendi ilma seda eemaldamata
+ -- Kui pinu on tühi, tagastab None või vastava väärtuse
+- Näide:
+ -- Kaaluge pinu: [1, 2, 3, 4, 5]
+ -- Pärast peek toimingut jääb pinu samaks: [1, 2, 3, 4, 5]
+ -- Ülemine element on: 5
+
+==SLIDE==
+Title: Pinude rakendamine massiivide abil
+- Sammud:
+ -- Loo fikseeritud suurusega massiiv
+ -- Jälgi pinu tippu muutuja abil (algväärtus on -1)
+ -- Push: Kontrolli, kas on täis, kui ei ole, suurenda tippu ja lisa element
+ -- Pop: Kontrolli, kas on tühi, kui ei ole, eemalda ülemine element ja vähenda tippu
+ -- Peek: Tagasta tippasendis olev element
+- Näidisrakendus:
+ -- Pythoni kood, mis näitab põhilisi pinu toiminguid massiivide abil
+
+==SLIDE==
+Title: Pinude rakendamine LinkedListide abil
+- Põhirakendus:
+ -- Kasuta Node klassi iga elemendi esindamiseks
+ -- Igal sõlmel on andmeatribuut ja järgmine atribuut
+ -- Pinu klassil on tippatribuut, mis osutab ülemisele sõlmele
+ -- Push, Pop ja Peek toimingud rakendatakse tippatribuudi abil
+- Näidisrakendus:
+ -- Pythoni kood, mis näitab põhilisi pinu toiminguid LinkedListide abil
+
+==SLIDE==
+Title: Pinude eelised
+- Efektiivne andmehaldus:
+ -- Haldab andmeid LIFO meetodil
+- Funktsioonide efektiivne haldamine:
+ -- Salvestab kohalikke muutujaid, kui funktsiooni kutsutakse
+- Kontroll mälu üle:
+ -- Võimaldab täpset mälu eraldamist ja vabastamist
+- Nutikas mäluhaldus:
+ -- Puhastab automaatselt objekte
+- Turvalisus:
+ -- Ei ole kergesti rikutav, muutes selle usaldusväärseks
+- Fikseeritud suurus:
+ -- Muutujaid ei saa ümber suurustada, tagades järjepidevuse
+
+==SLIDE==
+Title: Pinu puudused
+- Piiratud suurusega
+-- Võib põhjustada pinu ülevoolu, kui seda korralikult ei hallata
+- Ei paku otseset juurdepääsu üksikutele elementidele
+- Keerukused teatud toimingutes
+-- Näiteks keskmise elemendi juurdepääsuks on vajalik O(n) aeg
+- Mälu raiskamine
+-- Pinu jaoks reserveeritud ruumi tõttu, isegi kui seda pole täielikult kasutatud
+Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/stack-data-structure/)
+
+==SLIDE==
+Title: Pinu tavalised kasutusjuhud
+- Avaldise hindamine
+-- Postfiksi või prefiksi avaldiste hindamine
+- Tagasipöördumise algoritmid
+-- Nagu labürindi lahendamine, kaheksa kuninganna probleem
+- Mälu haldamine
+-- Pinu mälu programmeerimiskeeltes
+- Funktsiooni kutsumise haldamine
+-- Rekursiivsete algoritmide funktsioonikõnede haldamine
+- Süntaksi analüüs
+-- Programmeerimiskeelte kompilaatorite jaoks
+Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/stack-data-structure/)
+
+==SLIDE==
+Title: Järjekorrad: Definitsioon
+- Lineaarne andmestruktuur
+-- Avatud mõlemast otsast
+-- Toimingud toimuvad Esimene Sisse Esimene Välja (FIFO) järjekorras
+- Päriseluline analoogia
+-- Nagu järjekord piletite ostmiseks
+-- Esimene inimene järjekorras on esimene teenindatav
+Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/queue-data-structure/)
+
+==SLIDE==
+Title: Järjekordade omadused
+- Võib käidelda mitut andmet
+- Juurdepääsetav mõlemast otsast
+-- Järjekorra esiosa (või pea): kust esimene kirje eemaldatakse
+-- Järjekorra tagaosa (või saba): kuhu viimane kirje lisati
+- Kiire ja paindlik
+- Esitused
+-- Võib esindada massiivide või Linked Lists'ide abil
+Allikas: [GeeksforGeeks](https://www.geeksforgeeks.org/queue-data-structure/)
+
+==SLIDE==
+Title: Järjekordade tüübid
+- Lihtne järjekord (või lineaarne järjekord)
+-- Sisestamine tagaosas, eemaldamine esiosast
+-- Järgib rangelt FIFO reeglit
+- Ringjärjekord
+-- Viimane element osutab esimesele, moodustades ringikujulise lingi
+-- Ületab mälu raiskamise probleemi lineaarses järjekorras
+- Prioriteedijärjekord
+-- Elemente teenindatakse nende prioriteedi alusel
+-- Kui sama prioriteet, siis järgitakse FIFO järjekorda
+- Kahe otsaga järjekord (Deque)
+-- Mõlemast otsast saab sisestada ja eemaldada
+Allikas: [Programiz](https://www.programiz.com/dsa/types-of-queue)
+
+==SLIDE==
+Title: Lihtne Järjekord
+- Definitsioon
+-- Andmestruktuur, mis järgib FIFO (Esimene sisse, esimene välja) põhimõtet.
+-- Elemente lisatakse taha ja eemaldatakse eest.
+- Kasutusjuhud
+-- Protsesside ajastamine
+-- Andmete puhverdamine
+-- Tellimuste töötlemine
+
+==SLIDE==
+Title: Ringjärjekord
+- Definitsioon
+-- Lineaarne andmestruktuur, mis järgib FIFO põhimõtet.
+-- Viimane positsioon on ühendatud esimese positsiooniga, moodustades ringi.
+- Eelised
+-- Tõhus mälu kasutamine
+-- Elemente saab pidevalt lisada ja eemaldada ilma nihutamata.
+- Kasutusjuhud
+-- CPU ajastamine
+-- Mälu haldamine
+
+==SLIDE==
+Title: Prioriteedijärjekord
+- Definitsioon
+-- Abstraktne andmetüüp, mis on sarnane tavalise järjekorra või pinuga.
+-- Igale elemendile on määratud prioriteet.
+-- Kõrge prioriteediga elemendid teenindatakse esimesena.
+- Rakendamine
+-- Võib rakendada hunnikute, massiivide, linked listide või binaarsete otsingupuude abil.
+- Toimingud
+-- on_tühi: Kontrolli, kas järjekord on tühi.
+-- lisa_prioriteediga: Lisa element prioriteediga.
+-- võta_kõrgeima_prioriteediga_element: Eemalda ja tagasta kõrgeima prioriteediga element.
+- Rakendused
+-- Reaalajas süsteemid
+-- Algoritmid nagu Dijkstra ja A* otsing.
+[Allikas: Wikipedia, GeeksforGeeks]
+
+==SLIDE==
+Title: Toimingud Järjekordades
+- Lisa järjekorda (Enqueue)
+-- Lisa elemente järjekorra taha.
+- Võta järjekorrast (Dequeue)
+-- Eemalda elemendid järjekorra eest.
+- Piilu (Peek)
+-- Vaata esimest elementi ilma seda eemaldamata.
+- Kontrolli (Check)
+-- Määra kindlaks, kas järjekord on tühi.
+- Suurus (Size)
+-- Saada järjekorras olevate elementide arv.
+- Rakendused
+-- Protsesside ajastamine
+-- Sõnumite edastamine
+-- Laiuse-eelistusega otsingualgoritmid
+
+==SLIDE==
+Title: Lisa Järjekorda Toiming (Enqueue Operation)
+- Definitsioon
+-- Elemendi lisamine järjekorra lõppu.
+-- Mõnes kontekstis tuntud ka kui "lisa".
+- Funktsionaalsus
+-- Tagab, et element asetatakse taha.
+-- Säilitab järjekorras olevate elementide järjekorra.
+
+==SLIDE==
+Title: Dequeue toiming
+- Definitsioon:
+ -- Dequeue (või dequeue toiming) viitab elemendi eemaldamisele järjekorra eest.
+ -- Järgib First In First Out (FIFO) põhimõtet, mis tähendab, et järjekorras vanim element eemaldatakse esimesena.
+- Protsess:
+ -- Kontrolli, kas järjekord on tühi.
+ -- Kui ei ole, eemalda element eest.
+ -- Uuenda eesmist osutajat/viidet.
+- Ajaline keerukus:
+ -- Dequeue toimingu ajaline keerukus on O(1), kuna see hõlmab elemendi eemaldamist eest.
+
+==SLIDE==
+Title: Peek toiming järjekordades
+- Definitsioon:
+ -- Peek toiming võimaldab vaadata järjekorra ees olevat elementi ilma seda eemaldamata.
+- Protsess:
+ -- Kontrolli, kas järjekord on tühi.
+ -- Kui ei ole, tagasta eesmine element.
+- Ajaline keerukus:
+ -- Peek toimingu ajaline keerukus on O(1), kuna see hõlmab ainult eesmise elemendi vaatamist.
+
+==SLIDE==
+Title: Järjekordade rakendamine massiivide abil
+- Sammud:
+ -- Loo fikseeritud suurusega massiiv (`queueArray`).
+ -- Algväärtusta `front` ja `rear` muutujad väärtusega -1.
+ -- Enqueue: Lisa element taha, kui pole täis.
+ -- Dequeue: Eemalda element eest, kui pole tühi.
+ -- Lisategevused: `isEmpty()`, `isFull()`, `size()`.
+- Ajaline keerukus:
+ -- Enqueue ja Dequeue toimingud võtavad pidevat aega O(1).
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-queue/)
+
+==SLIDE==
+Title: Järjekordade rakendamine LinkedListide abil
+- Sammud:
+ -- Defineeri Node klass `data` ja `next` atribuutidega.
+ -- Algväärtusta Queue klass `head` ja `tail` atribuutidega.
+ -- Enqueue: Lisa element saba taha.
+ -- Dequeue: Eemalda element peast.
+ -- Lisameetodid: `isEmpty` ja `peek`.
+- Eelised:
+ -- Dünaamiline suurus.
+ -- Efektiivne mälu kasutamine.
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-queue/)
+
+==SLIDE==
+Title: Järjekordade eelised
+- Efektiivne haldamine:
+ -- Võib tõhusalt hallata suurt hulka andmeid.
+- Toimingud:
+ -- Sisestamine ja kustutamine toimuvad hõlpsalt FIFO tõttu.
+- Mitme tarbija teenus:
+ -- Kasulik, kui teenust kasutavad mitmed tarbijad.
+- Kiirus:
+ -- Kiire andmete vaheline protsesside suhtlus.
+- Reaalaja rakendused:
+ -- ATM boksi järjekord, pileti leti järjekord, CPU ülesannete ajastamine jne.
+- Allikas: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-queue/)
+
+==SLIDE==
+Title: Järjekordade puudused
+- Piiratud suurus:
+ -- Järjekorrad võivad üle voolata, kui need jõuavad oma maksimaalse mahuni.
+ -- Ülevool võib tekkida, kui elemente lisatakse kiiremini kui neid eemaldatakse.
+- Alavool:
+ -- Kui järjekord on tühi ja tehakse katse element eemaldada, võib see põhjustada alavoolu.
+ -- Alavool võib tekkida, kui elemente eemaldatakse kiiremini kui neid lisatakse.
+- Blokeerimine:
+ -- Järjekorrad võivad muutuda blokeerituks, kui need on täis või tühjad.
+ -- Blokeeritud järjekorrad võivad põhjustada viivitusi töötlemises või isegi surnud punkti.
+- Prioriteedi pöördumine:
+ -- Kõrgema prioriteediga elemendid võivad oodata, kui madalama prioriteediga elemente töödeldakse esmalt.
+[Allikas](https://www.geeksforgeeks.org/applications-of-queue-data-structure/)
+
+==SLIDE==
+Title: Järjekordade tavalised kasutusjuhud
+- Ülesannete ajastamine:
+ -- Halda ülesandeid prioriteedi või saabumise järjekorra alusel.
+- Ressursside eraldamine:
+ -- Halda ressursse nagu printerid või CPU töötlemisaeg.
+- Partii töötlemine:
+ -- Käsitse töid nagu andmeanalüüs või pildi renderdamine.
+- Sõnumipuhverdamine:
+ -- Puhverda sõnumeid suhtlussüsteemides.
+- Sündmuste haldamine:
+ -- Halda sündmusi süsteemides nagu GUI rakendused või simulatsioonid.
+- Liikluse haldamine:
+ -- Kontrolli liiklust süsteemides nagu lennujaamad või teedevõrgud.
+- Operatsioonisüsteemid:
+ -- Halda protsesse ja ressursse.
+- Võrguprotokollid:
+ -- Halda pakette protokollides nagu TCP ja UDP.
+[Allikas](https://www.geeksforgeeks.org/applications-of-queue-data-structure/)
+
+==SLIDE==
+Title: Efektiivsuse kompromissid järjekordades
+- Ruum vs. Paindlikkus:
+ -- Dünaamilised järjekorrad (nagu Linked List rakendused) pakuvad paindlikkust, kuid võivad tarbida rohkem mälu ülekoormuse tõttu.
+ -- Staatilised järjekorrad (nagu massiivi rakendused) on ruumitõhusad, kuid neil on fikseeritud suurus.
+- Sisestamise vs. Eemaldamise jõudlus:
+ -- Mõned rakendused võivad optimeerida kiiremate sisestamistoimingute jaoks kulul aeglasemate eemaldamistoimingute jaoks või vastupidi.
+- FIFO vs. Prioriteet:
+ -- Standardjärjekorrad järgivad Esimene-Sisse-Esimene-Välja (FIFO) järjekorda, tagades õigluse.
+ -- Prioriteedijärjekorrad töötlevad elemente prioriteedi alusel, mis võib põhjustada pikemaid ooteaegu madala prioriteediga elementidele.
+- Rööbitöötlus vs. Keerukus:
+ -- Rööbitöötlusjärjekorrad võimaldavad mitut toimingut korraga, kuid lisavad keerukust ja potentsiaalset ülekoormust.
+ -- Mitte-rööbitöötlusjärjekorrad on lihtsamad, kuid ei pruugi mitmelõimelises keskkonnas ressursse tõhusalt kasutada.
+- Mälu eraldamine:
+ -- Eelnevalt eraldatud mälu (staatiline) võib olla kiirem, kuid võib raisata ruumi, kui järjekord harva täitub.
+ -- Dünaamiline mälu eraldamine pakub paindlikkust, kuid võib sisestamistoimingute ajal viivitust tutvustada.
+
+

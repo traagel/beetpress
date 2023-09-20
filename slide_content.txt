@@ -1,22 +1,152 @@
-Introduction to Algorithms
-What is an Algorithm?
-Types of Algorithms
-Algorithm Complexity
-Big O Notation
-Sorting Algorithms
-Bubble Sort
-Quick Sort
-Merge Sort
-Searching Algorithms
-Binary Search
-Data Structures
-Arrays
-Linked Lists
-Stacks
-Queues
-Trees
-Binary Trees
-Graphs
-Hash Tables
-Conclusion
+==SLIDE==
+Title: Introduction to Linear Data Structures
+- What are Linear Data Structures?
+-- Data structures where elements are stored in a linear sequence.
+-- Examples: Arrays, Linked Lists, Stacks, Queues.
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Characteristics of Linear Data Structures
+- Arrays:
+-- Homogeneous elements stored in contiguous memory locations.
+-- Fixed size and index-based.
+-- Access Time: O(1), Search Time: O(n) or O(log n), Insertion Time: O(n), Deletion Time: O(n).
+- Linked Lists:
+-- Elements stored as nodes with data and reference to the next node.
+-- Types: Singly Linked List, Doubly Linked List.
+- Stacks:
+-- Last-In-First-Out (LIFO) order.
+-- Operations: push, pop.
+- Queues:
+-- First-In-First-Out (FIFO) order.
+-- Operations: enqueue, dequeue.
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Real-world Analogies of Linear Data Structures
+- Arrays:
+-- Storing marks of all students in a class.
+- Linked Lists:
+-- Train compartments connected in a sequence.
+- Stacks:
+-- A stack of plates; the last plate placed is the first one to be removed.
+- Queues:
+-- People standing in a line; the first person in line is the first to be served.
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-linear-data-structures/)
+
+==SLIDE==
+Title: Importance of Linear Data Structures in Modern Software
+- Efficiently organize and work with data.
+- Used in many computer science applications like searching, sorting, and manipulating data.
+- Offer efficient data access.
+- Essential for algorithms requiring specific data access patterns (e.g., LIFO for Stacks, FIFO for Queues).
+- Source: [DZone](https://dzone.com/articles/introduction-to-linear-data-structures)
+
+==SLIDE==
+Title: Relevance in System Design
+- Linear data structures are foundational in system design.
+-- They provide the building blocks for more complex data structures and algorithms.
+- Their understanding is crucial for designing efficient systems.
+- Used in various real-world applications like databases, operating systems, and more.
+- Source: [upGrad](https://www.upgrad.com/blog/what-is-linear-data-structure/)
+
+
+==SLIDE==
+Title: Arrays: Definition
+- What are Arrays?
+-- Contiguous memory locations
+-- Used to store multiple items of the same type
+-- Indexed collection of fixed number of homogeneous data elements
+- Common Operations:
+-- Insertion
+-- Deletion
+-- Traversal
+-- Searching
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Characteristics of Arrays
+- Fixed Size: Once declared, size cannot change
+-- Can lead to wastage or shortage of memory
+- Homogeneous Elements: All elements are of the same type
+- Contiguous Memory Locations: Elements are stored in adjacent memory locations
+- Random Access: Direct access to any element using its index
+- Cache Friendly: Due to contiguous memory, arrays have better cache locality
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Memory Representation of Arrays
+- Contiguous Memory Allocation: Elements stored in adjacent memory locations
+- Base Address: Address of the first element
+- Calculation: Memory address of an element can be calculated using:
+-- Base Address + (index * size of data type)
+- Efficient in terms of memory access but fixed size can lead to memory wastage
+- Source: [GeeksforGeeks](https://www.geeksforgeeks.org/array-data-structure/)
+
+==SLIDE==
+Title: Array Memory Allocation
+- Contiguous Memory: Elements are allocated successive memory addresses
+-- E.g., integer array elements might occupy 4 bytes each
+- Memory Allocation:
+-- Total memory = Number of elements * size of one element
+-- Integer Array of N elements = N * 4 bytes
+-- Character Array of N elements = N * 1 byte
+- Multidimensional Arrays: Memory allocated for rows and columns
+-- Row Major Order: Elements of rows stored consecutively
+-- Column Major Order: Elements of columns stored consecutively
+- Source: [TutorialCup](https://tutorialcup.com/cprogramming/array-memory-allocation.htm)
+
+==SLIDE==
+Title: Cache Locality and Its Significance
+- What is Locality of Reference?
+-- Tendency of a program to access same set of memory locations repetitively over a short time
+- Types of Locality:
+-- Temporal Locality: Reuse of specific data/resources within a short time duration
+-- Spatial Locality: Use of data elements within close storage locations
+-- Sequential Locality: Accessing data elements linearly, like in arrays
+- Importance:
+-- Systems with strong locality are candidates for optimization techniques like caching and prefetching
+-- Improves performance by reducing memory access time
+- Source: [Wikipedia](https://en.wikipedia.org/wiki/Locality_of_reference)
+
+
+==SLIDE==
+Title: Time Complexity: Access in Arrays
+- Definition: The time complexity for accessing an element in an array.
+- Constant Time: O(1) complexity.
+- Reason: Elements in an array are stored continuously in memory. Accessing any element can be done directly by its index without iteration or searching.
+- Source: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Time Complexity: Insertion in Arrays
+- Insertion at the end: O(1) - Constant time.
+- Insertion at the beginning or specific position: O(n) - Linear time. Requires shifting existing elements.
+- Insertion in a sorted array: O(n) - Linear time for shifting, even if binary search is used for finding the position.
+- Note: Assumes array has enough capacity. Resizing can affect time complexity.
+- Source: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Time Complexity: Deletion in Arrays
+- Deleting at the end: O(1) - Constant time.
+- Deleting at the beginning or middle: O(n) - Linear time. Requires shifting of elements.
+- Tip: If order doesn't matter, swap with the last element and delete for O(1) complexity.
+- Source: [Link](https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-array-data-structure/)
+
+==SLIDE==
+Title: Advantages of Arrays
+- Code Optimization: Store large data with less code.
+- Easy to Use: Implement various algorithms easily.
+- Constant Access Time: O(1) for any element.
+- Uses Indexes: Starting from 0 to length-1.
+- Implements Other Structures: Used in linked lists, stacks, queues, etc.
+- Efficient Memory Usage: Contiguous memory locations.
+- Source: [Link](https://www.thecrazyprogrammer.com/2021/05/advantages-and-disadvantages-of-array.html)
+
+==SLIDE==
+Title: Disadvantages of Arrays
+- Fixed Size: Cannot be resized (static arrays).
+- Homogeneous: Only one data type per array.
+- Difficult Insertion/Deletion: Due to contiguous memory.
+- No Index Bound Checking: In languages like C, can lead to runtime errors.
+- Source: [Link](https://www.thecrazyprogrammer.com/2021/05/advantages-and-disadvantages-of-array.html)
 
