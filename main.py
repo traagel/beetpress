@@ -26,7 +26,7 @@ xml_slides.remove(slides[0])  # Delete the first slide because it's a template
 
 content_slide_layout = prs.slide_layouts[1]
 
-with open("./loeng3-slaidid-est.txt", "r") as f:
+with open("./loeng4-slides-est.txt", "r") as f:
     content = f.read()
 
 slides = content.split('==SLIDE==')
@@ -56,4 +56,4 @@ for slide_text in slides:
             p.text = text
             p.level = depth - 1
 
-prs.save("lecture_slides.pptx")
+prs.save("lecture4_slides.pptx")
