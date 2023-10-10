@@ -1,0 +1,1000 @@
+==SLIDE==																									
+Title: Definition of Sorting																									
+- What is Sorting?																									
+-- An algorithm that arranges elements of a list into an order.																									
+-- Commonly used orders: numerical and lexicographical.																									
+-- Either in ascending or descending order.																									
+- Importance in Algorithms:																									
+-- Optimizes the efficiency of other algorithms.																									
+-- Useful for canonicalizing data and producing human-readable output.																									
+- Formal Requirements:																									
+-- Output should be in monotonic order.																									
+-- Output should be a permutation of the input.																									
+-- (https://en.wikipedia.org/wiki/Sorting_algorithm)																									
+																									
+==SLIDE==																									
+Title: Importance of Sorting in Data Processing																									
+- Performance Considerations:																									
+-- Binary search can find a value faster than linear search.																									
+-- Sorting becomes advantageous when dealing with large datasets or frequent searches.																									
+- Efficiency:																									
+-- Sorting can make certain search operations more efficient.																									
+-- For instance, performing a merge sort followed by binary searches is more efficient than multiple linear searches.																									
+-- (https://textbooks.cs.ksu.edu/cc310/7-searching-and-sorting/26-the-importance-of-sorting/)																									
+																									
+==SLIDE==																									
+Title: Applications of Sorting (1/3)																									
+- Counter Data Type:																									
+-- Modifying counters by tally.																									
+- Grade Data Type:																									
+-- Representing grades (A, B+, etc.) 																									
+- Student Data Type:																									
+-- Represents a student with a login, section number, and grade.																									
+- Case Insensitive Order:																									
+-- Sorting strings in ascending order, ignoring case.																									
+-- (https://algs4.cs.princeton.edu/25applications/)																									
+																									
+==SLIDE==																									
+Title: Applications of Sorting (2/3)																									
+- Descending Order String Comparator:																									
+-- Sorts string in descending order.																									
+- Sorting Non-English Alphabets:																									
+-- Sorting strings according to non-English alphabets, considering accents and pre-composed characters.																									
+- Smith's Rule:																									
+-- Scheduling jobs based on their ratio of processing time to weight.																									
+- Rhyming Words:																									
+-- Sorting words to find rhymes by reversing letters and sorting.																									
+-- (https://algs4.cs.princeton.edu/25applications/)																									
+																									
+==SLIDE==																									
+Title: Applications of Sorting (3/3)																									
+- Mode:																									
+-- Finding the mode of a sequence of integers.																									
+- Closest 1D Pair:																									
+-- Finding the pair of integers that are closest in value.																									
+- Sorting with Many Duplicates:																									
+-- Sorting a sequence with at most log N distinct elements.																									
+- Nearly Sorted:																									
+-- Sorting an array where elements are at most k positions from their target position.																									
+-- (https://algs4.cs.princeton.edu/25applications/)																									
+																									
+==SLIDE==																									
+Title: Introduction to Bubble Sort																									
+- What is Bubble Sort?																									
+-- Simplest sorting algorithm																									
+-- Works by repeatedly swapping adjacent elements if they are in the wrong order																									
+- Not suitable for large data sets due to high average and worst-case time complexity																									
+																									
+==SLIDE==																									
+Title: Bubble Sort Principle																									
+- How does it work?																									
+-- Traverse from left and compare adjacent elements																									
+-- The higher element is placed at the right side																									
+-- Largest element is moved to the rightmost end first																									
+-- Process continues until data is sorted																									
+- Example:																									
+-- Input: arr[] = {6, 3, 0, 5}																									
+-- First Pass: Largest element is placed at the end																									
+-- Second Pass: Second largest element is placed at its correct position																									
+-- Third Pass: Remaining elements are placed at their correct positions																									
+																									
+==SLIDE==																									
+Title: Bubble Sort Algorithm Walkthrough (Part 1)																									
+- Traverse through all array elements																									
+- Last i elements are already in place																									
+- Traverse the array from 0 to n-i-1																									
+- Swap if the element found is greater than the next element																									
+- If no swaps were made during a pass, the list is sorted																									
+																									
+==SLIDE==																									
+Title: Bubble Sort Algorithm Walkthrough (Part 2)																									
+- Example Implementation:																									
+-- Traverse through all array elements																									
+-- For each element, compare it with the next one																									
+-- If current element is greater than the next, swap them																									
+-- Continue this process until the entire array is sorted																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Bubble Sort																									
+- Worst-case performance: O(n^2) comparisons, O(n^2) swaps																									
+- Best-case performance: O(n) comparisons, O(1) swaps																									
+- Average performance: O(n^2) comparisons, O(n^2) swaps																									
+- Not recommended for large datasets due to its high time complexity																									
+																									
+==SLIDE==																									
+Title: Introduction to Selection Sort																									
+- Definition																									
+-- A simple and efficient in-place comparison-based sorting algorithm.																									
+- How it works																									
+-- Divides the list into two parts: the sorted part and the unsorted part.																									
+-- Repeatedly selects the smallest (or largest) element from the unsorted part and moves it to the sorted part.																									
+- Source																									
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/selection-sort-algorithm)																									
+-- [Medium by Karuna Sehgal](https://medium.com/karuna-sehgal/an-introduction-to-selection-sort-f27ae31317dc)																									
+																									
+==SLIDE==																									
+Title: Selection Sort Principle																									
+- Principle																									
+-- Works by dividing the list into a sorted and an unsorted region.																									
+-- The sorted region is built up from left to right.																									
+-- The smallest (or largest) element is selected from the unsorted region and swapped with the leftmost unsorted element.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)																									
+																									
+==SLIDE==																									
+Title: Selection Sort Algorithm (Part 1)																									
+- Step 1																									
+-- Start with the entire list.																									
+- Step 2																									
+-- Find the smallest (or largest) element in the list.																									
+-- Swap it with the first element.																									
+- Source																									
+-- [Tutorialspoint](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm)																									
+																									
+==SLIDE==																									
+Title: Selection Sort Algorithm (Part 2)																									
+- Step 3																									
+-- Consider the rest of the list and find the smallest (or largest) element in the remaining list.																									
+-- Swap it with the second element.																									
+- Step 4																									
+-- Repeat the process until the entire list is sorted.																									
+- Source																									
+-- [Interview Kickstart](https://www.interviewkickstart.com/learn/selection-sort)																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Selection Sort																									
+- Worst-case time complexity: O(n^2)																									
+-- Occurs when the list is sorted in reverse order.																									
+- Best-case time complexity: O(n^2)																									
+-- Occurs even when the list is already sorted.																									
+- Average-case time complexity: O(n^2)																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)																									
+																									
+==SLIDE==																									
+Title: Introduction to Insertion Sort																									
+- Definition																									
+-- A simple sorting algorithm																									
+-- Works similar to the way you sort playing cards in your hands																									
+- How it works																									
+-- Builds the final sorted array (or list) one item at a time by comparisons																									
+-- Places the input element at its suitable place in each pass																									
+																									
+==SLIDE==																									
+Title: Insertion Sort Principle																									
+- Sorting Method																									
+-- Comparison based																									
+- Process																									
+-- Elements are shifted one at a time																									
+-- Input element is placed at its suitable place in each pass																									
+- Usage																									
+-- Efficient for small data sets																									
+																									
+==SLIDE==																									
+Title: Insertion Sort Algorithm (Part 1)																									
+- Start from the first element																									
+-- Consider it sorted																									
+- Move to the next element																									
+-- Compare with all elements in the sorted segment																									
+-- Shift the sorted elements up to create space																									
+-- Insert the element in the correct position																									
+																									
+==SLIDE==																									
+Title: Insertion Sort Algorithm (Part 2)																									
+- Repeat the process																									
+-- Continue until the entire list is sorted																									
+- Example																									
+-- [Refer to a suitable example from the provided links]																									
+- Implementation																									
+-- Can be implemented in various programming languages like Python, C++, Java, C																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Insertion Sort																									
+- Best Case																									
+-- O(n) - When the list is already sorted																									
+- Average Case																									
+-- O(n^2) - When elements are in jumbled order																									
+- Worst Case																									
+-- O(n^2) - When the list is sorted in reverse order																									
+- Note																									
+-- Much less efficient on large lists compared to more advanced algorithms like quicksort, heapsort, or merge sort																									
+																									
+==SLIDE==																									
+Title: Introduction to Merge Sort																									
+- Definition																									
+-- Merge sort is a sorting algorithm that works by dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array.																									
+- Process																									
+-- The process of merge sort is to divide the array into two halves, sort each half, and then merge the sorted halves back together. This process is repeated until the entire array is sorted.																									
+- Recursive Algorithm																									
+-- Merge sort is a recursive algorithm that continuously splits the array in half until it cannot be further divided, i.e., the array has only one element left (an array with one element is always sorted). Then the sorted subarrays are merged into one sorted array.																									
+																									
+==SLIDE==																									
+Title: Merge Sort Principle																									
+- Divide and Conquer																									
+-- Merge sort is based on the divide and conquer technique, where the array is continuously divided into two halves until it reaches unit length.																									
+- Merging																									
+-- After division, the sorted subarrays are merged together to form bigger sorted subarrays, and this process continues until the entire array is sorted.																									
+- Stability																									
+-- Merge sort is stable, maintaining the relative order of equal elements in the input array.																									
+																									
+==SLIDE==																									
+Title: Merge Sort Algorithm - Splitting																									
+- Division of Array																									
+-- The array is initially divided into two equal halves and is further divided until it reaches unit length.																									
+- Recursive Division																									
+-- The division is done recursively, breaking down the problem into smaller sub-problems until the base case is reached.																									
+																									
+==SLIDE==																									
+Title: Merge Sort Algorithm - Merging																									
+- Merging Subarrays																									
+-- Once the array is divided to unit length, the sorted subarrays are merged together to form bigger sorted subarrays.																									
+- Order Maintenance																									
+-- The merging process ensures that the order of elements is maintained, resulting in a sorted array.																									
+																									
+==SLIDE==																									
+Title: Merge Sort Algorithm - Combining																									
+- Final Merging																									
+-- The merging process is continued until the sorted array is built from the smaller subarrays.																									
+- Sorted Array																									
+-- The final outcome of the combining process is a completely sorted array, with elements arranged in ascending or descending order based on the requirement.																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Merge Sort																									
+- Time Complexity																									
+-- Merge Sort has a time complexity of O(N log(N)) in all 3 cases (worst, average, and best) as it always divides the array into two halves and takes linear time to merge two halves.																									
+- Auxiliary Space																									
+-- Merge Sort requires O(N) auxiliary space as all elements are copied into an auxiliary array during the merge process.																									
+- Efficiency																									
+-- Due to its guaranteed worst-case time complexity of O(N logN), Merge sort is particularly well-suited for sorting large datasets and is efficient even on large datasets.																									
+																									
+==SLIDE==																									
+Title: Introduction to Quick Sort																									
+- Definition																									
+-- An efficient, general-purpose sorting algorithm.																									
+-- Developed by British computer scientist Tony Hoare in 1959.																									
+- Importance																									
+-- Commonly used algorithm for sorting.																									
+-- Slightly faster than merge sort and heapsort for randomized data.																									
+																									
+==SLIDE==																									
+Title: Quick Sort Principle																									
+- Type: Divide-and-conquer algorithm.																									
+- Main Idea:																									
+-- Select a 'pivot' element from the array.																									
+-- Partition other elements into two sub-arrays based on comparison with the pivot.																									
+-- Recursively sort the sub-arrays.																									
+																									
+==SLIDE==																									
+Title: Quick Sort Algorithm - Pivot Selection																									
+- Pivot: A value from the array used for partitioning.																									
+- Importance of Pivot:																									
+-- Helps in dividing the array into two sub-arrays.																									
+-- Can affect the algorithm's performance.																									
+																									
+==SLIDE==																									
+Title: Quick Sort Algorithm - Partitioning																									
+- Goal: Reorder elements based on comparison with the pivot.																									
+- Steps:																									
+-- Choose a pivot.																									
+-- Reorder elements such that:																									
+--- Elements less than the pivot come before it.																									
+--- Elements greater than the pivot come after it.																									
+-- Elements equal to the pivot can be on either side.																									
+																									
+==SLIDE==																									
+Title: Quick Sort Algorithm - Combining																									
+- After partitioning:																									
+-- Recursively apply quicksort to both sub-arrays.																									
+-- Exclude the pivot element as it's already in its correct position.																									
+- Continue the process until the entire array is sorted.																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Quick Sort																									
+- Best-case: O(n log n)																									
+- Worst-case: O(n^2)																									
+- Average-case: O(n log n)																									
+- Factors affecting time complexity:																									
+-- Choice of pivot.																									
+-- Distribution of data.																									
+																									
+==SLIDE==																									
+Title: Introduction to Shell Sort																									
+- Definition																									
+-- A highly efficient sorting algorithm based on insertion sort.																									
+-- Avoids large shifts and reduces time complexity by sorting partially sorted arrays.																									
+- How it works																									
+-- Divides the list into sublists and sorts them using insertion sort.																									
+-- Successively reduces the interval between elements to be compared.																									
+- Source																									
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/shell-sort)																									
+-- [Tutorialspoint](https://www.tutorialspoint.com/data_structures_algorithms/shell_sort_algorithm.htm)																									
+																									
+==SLIDE==																									
+Title: Shell Sort Principle																									
+- Principle																									
+-- Sorts elements far apart from each other and successively reduces the interval between the elements to be compared.																									
+-- Uses a gap to create sublists and sorts them using insertion sort.																									
+- Source																									
+-- [Programiz](https://www.programiz.com/dsa/shell-sort)																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/shellsort/)																									
+																									
+==SLIDE==																									
+Title: Shell Sort Algorithm (Part 1)																									
+- Step 1																									
+-- Choose a gap to divide the list into sublists.																									
+- Step 2																									
+-- Sort the sublists using insertion sort.																									
+- Step 3																									
+-- Reduce the gap and repeat the process.																									
+- Source																									
+-- [MakeUseOf](https://www.makeuseof.com/intro-to-shell-sort/)																									
+																									
+==SLIDE==																									
+Title: Shell Sort Algorithm (Part 2)																									
+- Step 4																									
+-- Continue reducing the gap and sorting sublists until the gap is 1.																									
+- Step 5																									
+-- Perform a final insertion sort with a gap of 1.																									
+- Source																									
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/shell-sort)																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Shell Sort																									
+- Best-case time complexity: Depends on the gap sequence.																									
+- Worst-case time complexity: O(n^2) or O(n(log n)^2), depending on the gap sequence.																									
+- Average-case time complexity: Depends on the gap sequence.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/shellsort/)																									
+																									
+==SLIDE==																									
+Title: Introduction to Heap Sort																									
+- Definition																									
+-- A comparison-based sorting technique																									
+-- Based on Binary Heap data structure																									
+- How it works																									
+-- Visualizes the elements of the array as a special kind of complete binary tree called a heap																									
+-- Organizes elements in an array to be sorted into a binary heap by repeatedly moving the largest element																									
+																									
+==SLIDE==																									
+Title: Heap Sort Principle																									
+- Sorting Method																									
+-- Comparison based																									
+- Process																									
+-- Creates a heap from the input array																									
+-- Sorts the array by taking advantage of a heap's properties																									
+- Usage																									
+-- Efficient for large data sets																									
+																									
+==SLIDE==																									
+Title: Heap Sort Algorithm (Part 1)																									
+- Create a Binary Heap																									
+-- Heapify the input array																									
+- Extract Elements																									
+-- Remove the maximum element from the heap																									
+-- Replace it with the last element in the heap																									
+-- Heapify the reduced heap																									
+																									
+==SLIDE==																									
+Title: Heap Sort Algorithm (Part 2)																									
+- Repeat the Process																									
+-- Continue until the heap is empty																									
+-- The array is now sorted																									
+- Example																									
+-- [Refer to a suitable example from the provided links]																									
+- Implementation																									
+-- Can be implemented in various programming languages like Python, C++, Java, C																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Heap Sort																									
+- Best Case																									
+-- O(n log n) - For a balanced binary heap																									
+- Average Case																									
+-- O(n log n) - Logarithmic time for each of n elements																									
+- Worst Case																									
+-- O(n log n) - Even if the input is sorted or reversed																									
+- Note																									
+-- Heap Sort is more efficient compared to comparison-based sorts like Bubble Sort and Insertion Sort																									
+																									
+==SLIDE==																									
+Title: Introduction to Counting Sort																									
+- Definition																									
+-- Counting Sort is a non-comparison-based sorting algorithm suitable for a limited range of input values. It is efficient when the range of input values is small compared to the number of elements to be sorted.																									
+- Characteristics																									
+-- It counts the frequency of each distinct element in the input array and uses this information to place the elements in their correct sorted positions.																									
+-- It is particularly useful for sorting integers or categorical data.																									
+																									
+==SLIDE==																									
+Title: Counting Sort Principle																									
+- Working Principle																									
+-- The algorithm works by counting the occurrences of each unique element in the input array and then using those counts to compute an item's index in the output array.																									
+-- It maintains the order of equal elements, making it a stable sorting algorithm.																									
+- Range of Input Values																									
+-- It performs faster than comparison-based sorting algorithms, such as merge sort and quicksort, especially when the range of input is of the order of the number of inputs.																									
+																									
+==SLIDE==																									
+Title: Counting Sort Algorithm - Part 1																									
+- Initialization																									
+-- Find the maximum element from the given array.																									
+-- Initialize a countArray[] of length max+1 with all elements as 0.																									
+- Counting Occurrences																									
+-- Store the count of each unique element of the input array at their respective indices in the countArray[].																									
+-- Calculate the prefix sum of the elements of the countArray[] to help in placing the elements of the input array at the correct index in the output array.																									
+																									
+==SLIDE==																									
+Title: Counting Sort Algorithm - Part 2																									
+- Creating Output Array																									
+-- Iterate from the end of the input array and update the outputArray based on the countArray.																									
+-- The order of equal elements is preserved due to traversing the input array from the end, making the sorting algorithm stable.																									
+- Final Output																									
+-- The final output is a sorted array, with elements arranged in ascending or descending order based on the requirement.																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Counting Sort																									
+- Time Complexity																									
+-- The time complexity of Counting Sort is O(N+M), where N and M are the size of inputArray[] and countArray[] respectively.																									
+-- It has the same time complexity in the worst-case, average-case, and best-case scenarios.																									
+- Auxiliary Space																									
+-- The algorithm requires O(N+M) auxiliary space, where N and M are the space taken by outputArray[] and countArray[] respectively.																									
+- Efficiency																									
+-- Counting sort is efficient and generally performs faster than all comparison-based sorting algorithms, particularly when the range of input is of the order of the number of inputs.																									
+																									
+==SLIDE==																									
+Title: Introduction to Bucket Sort																									
+- Definition																									
+-- A sorting technique that involves dividing elements into various groups or buckets.																									
+-- Also known as bin sort.																									
+- How it works																									
+-- Distributes the elements of an array into a number of buckets.																									
+-- Each bucket is then sorted individually.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/bucket-sort-2/)																									
+-- [Medium by Karuna Sehgal](https://medium.com/karuna-sehgal/an-introduction-to-bucket-sort-62aa5325d124)																									
+																									
+==SLIDE==																									
+Title: Bucket Sort Principle																									
+- Principle																									
+-- Works by distributing the elements of an array into several buckets.																									
+-- The buckets are then sorted individually, either using a different sorting algorithm or by recursively applying the bucket sort algorithm.																									
+- Source																									
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/bucket-sort-algorithm)																									
+-- [Programiz](https://www.programiz.com/dsa/bucket-sort)																									
+																									
+==SLIDE==																									
+Title: Bucket Sort Algorithm (Part 1)																									
+- Step 1																									
+-- Determine the number of buckets to be used.																									
+- Step 2																									
+-- Insert elements into the buckets.																									
+- Step 3																									
+-- Sort each bucket individually.																									
+- Source																									
+-- [Wikipedia](https://en.wikipedia.org/wiki/Bucket_sort)																									
+																									
+==SLIDE==																									
+Title: Bucket Sort Algorithm (Part 2)																									
+- Step 4																									
+-- Merge the sorted buckets to get the sorted array.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/bucket-sort-2/)																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Bucket Sort																									
+- Best-case time complexity: O(n + k)																									
+-- Occurs when the elements are uniformly distributed.																									
+- Worst-case time complexity: O(n^2)																									
+-- Occurs when all elements are put in a single bucket.																									
+- Average-case time complexity: O(n + n^2/k + k)																									
+-- Where k is the number of buckets.																									
+- Source																									
+-- [Programiz](https://www.programiz.com/dsa/bucket-sort)																									
+																									
+==SLIDE==																									
+Title: Introduction to Radix Sort																									
+- Definition																									
+-- A non-comparative integer sorting algorithm.																									
+-- Avoids comparison by distributing elements into buckets according to their radix.																									
+- History																									
+-- Dates back to 1887, Herman Hollerith's work on tabulating machines.																									
+-- Commonly used to sort punched cards as early as 1923.																									
+- Modern Usage																									
+-- Applied to collections of binary strings and integers.																									
+-- Shown to be faster than other general-purpose sorting algorithms in some benchmarks.																									
+																									
+==SLIDE==																									
+Title: Radix Sort Principle																									
+- Type: Non-comparative sorting algorithm.																									
+- Main Idea:																									
+-- Elements are distributed into buckets according to their radix.																									
+-- For elements with more than one significant digit, the bucketing process is repeated for each digit.																									
+-- Preserves the ordering of the prior step until all digits have been considered.																									
+- Lexicographic Data:																									
+-- Constrained to lexicographic data like integers and strings.																									
+																									
+==SLIDE==																									
+Title: Radix Sort Algorithm - LSD and MSD																									
+- Least Significant Digit (LSD)																									
+-- Starts sorting from the rightmost digit.																									
+-- Suitable for sorting integers and strings of varying length.																									
+-- Typically stable sorts.																									
+- Most Significant Digit (MSD)																									
+-- Starts sorting from the leftmost digit.																									
+-- Suitable for sorting strings or fixed-length integer representations.																									
+-- Not necessarily stable if the original ordering of duplicate keys must be maintained.																									
+- Handling of Variable Length Input:																									
+-- LSD sorts can group by length, radix sort each group, then concatenate the groups in size order.																									
+-- MSD sorts must effectively 'extend' all shorter keys to the size of the largest key and sort them accordingly.																									
+																									
+==SLIDE==																									
+Title: Radix Sort Algorithm - Implementation																									
+- Implementation Variants:																									
+-- In-place MSD radix sort implementations.																									
+-- Binary MSD radix sort or binary quicksort.																									
+-- Stable MSD radix sort implementations require a memory buffer of the same size as the input array.																									
+- Hybrid Approaches:																									
+-- When bins get small, other sorting algorithms like insertion sort should be used.																									
+-- Good implementations of insertion sort can significantly speed up radix sort.																									
+- Application to Parallel Computing:																									
+-- Each of the bins can be sorted independently, suitable for parallel computing.																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Radix Sort																									
+- Time Complexity: O(nw)																									
+-- Where n is the number of keys, and w is the key length.																									
+- LSD variants can achieve a lower bound for w of 'average key length' when splitting variable length keys into groups.																									
+- Optimized radix sorts are very fast in domains that suit them but are constrained to lexicographic data.																									
+																									
+==SLIDE==																									
+Title: Introduction to Tim Sort																									
+- Definition																									
+-- A hybrid, stable sorting algorithm derived from merge sort and insertion sort.																									
+-- Designed to perform well on many kinds of real-world data.																									
+- How it works																									
+-- Breaks down the array into subarrays and sorts them using a combination of merge sort and insertion sort.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/timsort/)																									
+-- [Wikipedia](https://en.wikipedia.org/wiki/Timsort)																									
+																									
+==SLIDE==																									
+Title: Tim Sort Principle																									
+- Principle																									
+-- Utilizes the idea that real-world data sets almost always contain already ordered subsequences.																									
+-- Optimally sorts different kinds of real-world data by combining the principles of merge sort and insertion sort.																									
+- Source																									
+-- [Infopulse](https://www.infopulse.com/blog/timsort-sorting-algorithm)																									
+-- [Javatpoint](https://www.javatpoint.com/tim-sort)																									
+																									
+==SLIDE==																									
+Title: Tim Sort Algorithm (Part 1)																									
+- Step 1																									
+-- Break down the array into small segments or runs.																									
+- Step 2																									
+-- Sort the runs using insertion sort.																									
+- Step 3																									
+-- Merge the runs using a modified merge sort.																									
+- Source																									
+-- [Medium by Muskan Vaswan](https://muskanvaswan.medium.com/tim-sort-48bffd550a9b)																									
+																									
+==SLIDE==																									
+Title: Tim Sort Algorithm (Part 2)																									
+- Step 4																									
+-- Continue merging runs until the entire array is sorted.																									
+- Source																									
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/timsort/)																									
+																									
+==SLIDE==																									
+Title: Time Complexity of Tim Sort																									
+- Best-case time complexity: O(n log n)																									
+- Worst-case time complexity: O(n log n)																									
+- Average-case time complexity: O(n log n)																									
+- Source																									
+-- [Wikipedia](https://en.wikipedia.org/wiki/Timsort)																									
+																									
+==SLIDE==																									
+Title: Practical Considerations - Stability																									
+- Definition																									
+-- Stability in sorting algorithms means maintaining the relative order of equal elements in the sorted output																									
+- Importance																									
+-- Essential when sorting key-value pairs with duplicate keys possible																									
+-- Provides consistent and predictable sorting results																									
+- Examples																									
+-- Bubble Sort is stable, Heap Sort is not stable																									
+																									
+==SLIDE==																									
+Title: Practical Considerations - Space Complexity																									
+- Definition																									
+-- Space complexity determines how much additional memory is needed by the sorting algorithm																									
+- Importance																									
+-- Crucial for optimizing the efficiency of the algorithm, especially in systems with limited memory																									
+- Considerations																									
+-- Some algorithms, like Merge Sort, require additional space, while others, like Heap Sort, sort in-place																									
+																									
+==SLIDE==																									
+Title: Practical Considerations - Adaptivity																									
+- Definition																									
+-- A sorting algorithm is adaptive if it takes advantage of already 'sorted' elements in the list that is to be sorted																									
+- Importance																									
+-- Adaptive algorithms can be more efficient on partially sorted data																									
+- Examples																									
+-- Insertion Sort is adaptive, Selection Sort is not adaptive																									
+																									
+==SLIDE==																									
+Title: Practical Considerations - Implementation Nuances																									
+- Consideration of Nuances																									
+-- Understanding the nuances of each sorting algorithm is crucial for effective implementation																									
+- Simplicity vs Efficiency																									
+-- Simple algorithms like Bubble Sort are easy to implement but may not be efficient for large datasets																									
+- Choosing the Right Algorithm																									
+-- The choice of sorting algorithm depends on various factors including data size, structure, and desired time and space complexity																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									
+																									

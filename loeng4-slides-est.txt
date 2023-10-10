@@ -1,0 +1,630 @@
+==SLIDE==
+Title: Definition of Sorting
+- Mis on sortimine?
+-- Algoritm, mis seadistab järjendi elemente teatud järjekorda.
+-- Levinumad järjekorrad: numbriline ja leksikograafiline.
+-- Kasvavas või kahanevas järjekorras.
+- Tähtsus algoritmides:
+-- Optimeerib teiste algoritmide tõhusust.
+-- Kasulik andmete kanoniseerimiseks ja inimloetava väljundi tootmiseks.
+- Formaalsed nõuded:
+-- Väljund peaks olema monotoonne järjekord.
+-- Väljund peaks olema sisendi permutatsioon.
+-- (https://et.wikipedia.org/wiki/Sortimisalgoritm)
+
+==SLIDE==
+Title: Importance of Sorting in Data Processing
+- Soorituskaalutlused:
+-- Binaarotsing leiab väärtuse kiiremini kui lineaarotsing.
+-- Sortimine muutub kasulikuks, kui tegeletakse suurte andmekogumite või sagedaste otsingutega.
+- Efektiivsus:
+-- Sortimine võib teha teatud otsinguoperatsioonid efektiivsemaks.
+-- Näiteks merge sorti teostamine järgnenud binaarotsingutega on efektiivsem kui mitmed lineaarotsingud.
+-- (https://textbooks.cs.ksu.edu/cc310/7-searching-and-sorting/26-the-importance-of-sorting/)
+
+==SLIDE==
+Title: Applications of Sorting (1/3)
+- Lugeja Andmetüüp:
+-- Muudab loendureid tulemuste järgi.
+- Hinne Andmetüüp:
+-- Esitab hinded (A, B+, jne.)
+- Õpilase Andmetüüp:
+-- Esindab õpilast, kellel on sisselogimine, sektsiooni number ja hinne.
+- Tõstutundetu Järjekord:
+-- Sorteerib stringe kasvavas järjekorras, eirates tõstutundlikkust.
+-- (https://algs4.cs.princeton.edu/25applications/)
+
+==SLIDE==
+Title: Applications of Sorting (2/3)
+- Laskuva Järjekorra String Comparator:
+-- Sorteerib stringe laskuvas järjekorras.
+- Mitte-Inglise Tähestike Sortimine:
+-- Sorteerib stringe mitte-Inglise tähestike järgi, arvestades aktsente ja eelkomposiitseid tähemärke.
+- Smithi reegel:
+-- Tööde ajakava koostamine nende töötlemisaja ja kaalu suhte põhjal.
+- Riimivad Sõnad:
+-- Riimisõnade leidmine tähtede tagurpidi pööramise ja sortimise teel.
+-- (https://algs4.cs.princeton.edu/25applications/)
+
+==SLIDE==
+Title: Applications of Sorting (3/3)
+- Mood:
+-- Leidke täisarvude jada mood.
+- Lähim 1D Paar:
+-- Leidke täisarvude paar, mis on väärtuselt kõige lähemal.
+- Paljude Duplikaatidega Sortimine:
+-- Jada sortimine, kus on kuni log N erinevat elementi.
+- Peaaegu Sorteeritud:
+-- Massiivi sortimine, kus elemendid on oma sihtkohast kuni k positsioonide kaugusel.
+-- (https://algs4.cs.princeton.edu/25applications/)
+
+==SLIDE==
+Title: Introduction to Bubble Sort
+- Mis on Bubble Sort?
+-- Kõige lihtsam sortimisalgoritm
+-- Töötab korduvalt kõrvuti asetsevaid elemente vahetades, kui need on vales järjekorras
+- Suurte andmekogumite jaoks pole sobiv kõrge keskmise ja halvima juhu ajalise keerukuse tõttu
+
+==SLIDE==
+Title: Bubble Sort Principle
+- Kuidas see töötab?
+-- Liigu vasakult ja võrdle kõrvuti asetsevaid elemente
+-- Kõrgem element asetatakse paremale poole
+-- Suurim element liigutatakse esmalt paremasse serva
+-- Protsess jätkub, kuni andmed on sorteeritud
+- Näide:
+-- Sisend: arr[] = {6, 3, 0, 5}
+-- Esimene läbiminek: Suurim element asetatakse lõppu
+-- Teine läbiminek: Teine suurim element asetatakse õigesse kohta
+-- Kolmas läbiminek: Ülejäänud elemendid asetatakse nende õigetesse kohtadesse
+
+==SLIDE==
+Title: Bubble Sort Algorithm Walkthrough (Part 1)
+- Liigu läbi kõigi massiivi elementide
+- Viimased i elemendid on juba paigas
+- Liigu massiivi läbi 0 kuni n-i-1
+- Vaheta, kui leitud element on suurem kui järgmine element
+- Kui läbimise ajal vahetusi ei tehtud, on järjend sorteeritud
+
+==SLIDE==
+Title: Bubble Sort Algorithm Walkthrough (Part 2)
+- Näite rakendamine:
+-- Liigu läbi kõigi massiivi elementide
+-- Iga elemendi jaoks võrdle seda järgmisega
+-- Kui praegune element on suurem kui järgmine, vaheta need
+-- Jätka seda protsessi, kuni kogu massiiv on sorteeritud
+
+==SLIDE==
+Title: Time Complexity of Bubble Sort
+- Halvima juhu sooritus: O(n^2) võrdlust, O(n^2) vahetust
+- Parima juhu sooritus: O(n) võrdlust, O(1) vahetust
+- Keskmise juhu sooritus: O(n^2) võrdlust, O(n^2) vahetust
+- Suurte andmekogumite jaoks pole soovitatav selle kõrge ajalise keerukuse tõttu
+
+
+==SLIDE==
+Title: Introduction to Selection Sort
+- Definition
+-- Lihtne ja efektiivne kohapealne võrdlusel põhinev sortimisalgoritm.
+- How it works
+-- Jagab järjendi kaheks osaks: sorteeritud osa ja sorteerimata osa.
+-- Valib korduvalt väikseima (või suurima) elemendi sorteerimata osast ja liigutab selle sorteeritud osasse.
+- Source
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/selection-sort-algorithm)
+-- [Medium by Karuna Sehgal](https://medium.com/karuna-sehgal/an-introduction-to-selection-sort-f27ae31317dc)
+
+==SLIDE==
+Title: Selection Sort Principle
+- Principle
+-- Töötab, jagades järjendi sorteeritud ja sorteerimata piirkonnaks.
+-- Sorteeritud piirkond ehitatakse üles vasakult paremale.
+-- Väikseim (või suurim) element valitakse sorteerimata piirkonnast ja vahetatakse vasakpoolseima sorteerimata elemendiga.
+- Source
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)
+
+==SLIDE==
+Title: Selection Sort Algorithm (Part 1)
+- Step 1
+-- Alustage kogu järjendiga.
+- Step 2
+-- Leidke järjendi väikseim (või suurim) element.
+-- Vahetage see esimese elemendiga.
+- Source
+-- [Tutorialspoint](https://www.tutorialspoint.com/data_structures_algorithms/selection_sort_algorithm.htm)
+
+==SLIDE==
+Title: Selection Sort Algorithm (Part 2)
+- Step 3
+-- Kaaluge järjendi ülejäänud osa ja leidke ülejäänud järjendist väikseim (või suurim) element.
+-- Vahetage see teise elemendiga.
+- Step 4
+-- Korrake protsessi, kuni kogu järjend on sorteeritud.
+- Source
+-- [Interview Kickstart](https://www.interviewkickstart.com/learn/selection-sort)
+
+==SLIDE==
+Title: Time Complexity of Selection Sort
+- Worst-case time complexity: O(n^2)
+-- Esineb, kui järjend on sorteeritud vastupidises järjekorras.
+- Best-case time complexity: O(n^2)
+-- Esineb isegi siis, kui järjend on juba sorteeritud.
+- Average-case time complexity: O(n^2)
+- Source
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/selection-sort/)
+
+==SLIDE==
+Title: Introduction to Insertion Sort
+- Definitsioon
+-- Lihtne sortimisalgoritm
+-- Töötab sarnaselt sellele, kuidas sorteerite mängukaarte oma kätes
+- Kuidas see töötab
+-- Ehitab lõpliku sorteeritud massiivi (või järjendi) ühe elemendi korraga võrdluste abil
+-- Paigutab sisendelementi igas läbimises sobivasse kohta
+
+==SLIDE==
+Title: Insertion Sort Principle
+- Sortimismeetod
+-- Võrdlusel põhinev
+- Protsess
+-- Elemente nihutatakse ükshaaval
+-- Sisendelement paigutatakse igas läbimises sobivasse kohta
+- Kasutus
+-- Efektiivne väikeste andmekogumite jaoks
+
+==SLIDE==
+Title: Insertion Sort Algorithm (Part 1)
+- Alusta esimesest elemendist
+-- Pea seda sorteerituks
+- Liigu järgmise elemendi juurde
+-- Võrdle kõigi sorteeritud segmendi elementidega
+-- Nihuta sorteeritud elemente üles, et luua ruumi
+-- Sisesta element õigesse kohta
+
+==SLIDE==
+Title: Insertion Sort Algorithm (Part 2)
+- Korda protsessi
+-- Jätka, kuni kogu järjend on sorteeritud
+- Näide
+-- [Viita sobivale näitele esitatud linkidest]
+- Implementatsioon
+-- Saab implementeerida erinevates programmeerimiskeeltes nagu Python, C++, Java, C
+
+==SLIDE==
+Title: Time Complexity of Insertion Sort
+- Parim Juhtum
+-- O(n) - Kui järjend on juba sorteeritud
+- Keskmine Juhtum
+-- O(n^2) - Kui elemendid on segamini järjekorras
+- Halvim Juhtum
+-- O(n^2) - Kui järjend on sorteeritud vastupidises järjekorras
+- Märkus
+-- Palju vähem efektiivne suurte järjendite puhul võrreldes arenenumate algoritmidega nagu kiirsort, kuhjasort või ühendsort
+
+
+==SLIDE==
+Title: Introduction to Merge Sort
+- Definitsioon
+-- Merge sort on sortimisalgoritm, mis töötab massiivi jagades väiksemateks alammassiivideks, sortides iga alammassiivi ja seejärel ühendades sorteeritud alammassiivid tagasi kokku, et moodustada lõplik sorteeritud massiiv.
+- Protsess
+-- Merge sort’i protsess on jagada massiiv kaheks pooleks, sortida iga pool ja seejärel ühendada sorteeritud pooled tagasi kokku. Seda protsessi korratakse, kuni kogu massiiv on sorteeritud.
+- Rekursiivne algoritm
+-- Merge sort on rekursiivne algoritm, mis jagab massiivi pidevalt pooleks, kuni seda ei saa enam jagada, st massiivil on ainult üks element järele (massiiv ühe elemendiga on alati sorteeritud). Seejärel ühendatakse sorteeritud alammassiivid üheks sorteeritud massiiviks.
+
+==SLIDE==
+Title: Merge Sort Principle
+- Jagamine ja vallutamine
+-- Merge sort põhineb jagamise ja vallutamise tehnikal, kus massiiv jagatakse pidevalt kaheks pooleks, kuni see jõuab ühikupikkuseni.
+- Ühendamine
+-- Pärast jagamist ühendatakse sorteeritud alammassiivid kokku, et moodustada suuremaid sorteeritud alammassiive, ja see protsess jätkub, kuni kogu massiiv on sorteeritud.
+- Stabiilsus
+-- Merge sort on stabiilne, säilitades võrdsete elementide suhtelise järjekorra sisendmassiivis.
+
+==SLIDE==
+Title: Merge Sort Algorithm - Splitting
+- Massiivi jagamine
+-- Massiiv jagatakse algul kaheks võrdseks pooleks ja jagatakse edasi, kuni see jõuab ühikupikkuseni.
+- Rekursiivne jagamine
+-- Jagamine toimub rekursiivselt, lagundades probleemi väiksemateks alaprobleemideks, kuni baasjuhtum on saavutatud.
+
+==SLIDE==
+Title: Merge Sort Algorithm - Merging
+- Alammassiivide ühendamine
+-- Kui massiiv on jagatud ühikupikkuseni, ühendatakse sorteeritud alammassiivid kokku, et moodustada suuremaid sorteeritud alammassiive.
+- Järjekorra säilitamine
+-- Ühendamisprotsess tagab elementide järjekorra säilitamise, andes tulemuseks sorteeritud massiivi.
+
+==SLIDE==
+Title: Merge Sort Algorithm - Combining
+- Lõplik ühendamine
+-- Ühendamisprotsess jätkub, kuni sorteeritud massiiv on väiksematest alammassiividest ehitatud.
+- Sorteeritud massiiv
+-- Ühendamisprotsessi lõplik tulemus on täielikult sorteeritud massiiv, kus elemendid on paigutatud kas kasvavas või kahanevas järjekorras, sõltuvalt nõudest.
+
+==SLIDE==
+Title: Time Complexity of Merge Sort
+- Ajaline keerukus
+-- Merge Sort’il on ajaline keerukus O(N log(N)) kõigil kolmel juhul (halvim, keskmine ja parim), kuna see jagab alati massiivi kaheks pooleks ja võtab lineaarse aja kahe poole ühendamiseks.
+- Abiruum
+-- Merge Sort vajab O(N) abiruumi, kuna kõik elemendid kopeeritakse ühendamisprotsessi ajal abimassiivi.
+- Efektiivsus
+-- Tänu selle tagatud halvima juhu ajalisele keerukusele O(N logN) on Merge sort eriti sobiv suurte andmekogumite sortimiseks ja on efektiivne isegi suurte andmekogumite puhul.
+
+==SLIDE==
+Title: Introduction to Quick Sort
+- Definition
+-- Efektiivne, üldotstarbeline sortimisalgoritm.
+-- Arendatud Briti arvutiteadlase Tony Hoare poolt 1959. aastal.
+- Importance
+-- Levinumalt kasutatav algoritm sortimiseks.
+-- Veidi kiirem kui ühendamissort ja hunniksort juhuslike andmete puhul.
+
+==SLIDE==
+Title: Quick Sort Principle
+- Type: Jagamis- ja vallutusalgoritm.
+- Main Idea:
+-- Valige massiivist 'telje' element.
+-- Jagage teised elemendid kaheks alammassiiviks, võrreldes neid teljelementiga.
+-- Sortige rekursiivselt alammassiivid.
+
+==SLIDE==
+Title: Quick Sort Algorithm - Pivot Selection
+- Pivot: Väärtus massiivist, mida kasutatakse partitsioneerimiseks.
+- Importance of Pivot:
+-- Aitab massiivi kaheks alammassiiviks jagada.
+-- Võib mõjutada algoritmi jõudlust.
+
+==SLIDE==
+Title: Quick Sort Algorithm - Partitioning
+- Goal: Ümberkorraldage elemendid, võrreldes neid teljelementiga.
+- Steps:
+-- Valige teljelement.
+-- Korraldage elemendid ümber nii, et:
+--- Elemendid, mis on väiksemad kui teljelement, tulevad enne seda.
+--- Elemendid, mis on suuremad kui teljelement, tulevad pärast seda.
+-- Elemendid, mis on võrdsed teljelemendiga, võivad olla kummalgi pool.
+
+==SLIDE==
+Title: Quick Sort Algorithm - Combining
+- After partitioning:
+-- Rakendage rekursiivselt kiirsorti mõlemale alammassiivile.
+-- Jätke teljelement välja, kuna see on juba õiges kohas.
+- Continue the process until the entire array is sorted.
+
+==SLIDE==
+Title: Time Complexity of Quick Sort
+- Best-case: O(n log n)
+- Worst-case: O(n^2)
+- Average-case: O(n log n)
+- Factors affecting time complexity:
+-- Teljevaliku.
+-- Andmete jaotus.
+
+==SLIDE==
+Title: Introduction to Shell Sort
+- Definitsioon
+-- Kõrgelt efektiivne sortimisalgoritm, mis põhineb sisestussortimisel.
+-- Vältib suuri nihkeid ja vähendab ajakompleksust, sortides osaliselt sorteeritud massiive.
+- Kuidas see töötab
+-- Jagab järjendi alamjärjenditeks ja sorteerib need sisestussortimise abil.
+-- Vähendab järk-järgult elementide vahelist intervalli, mida võrreldakse.
+- Allikas
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/shell-sort)
+-- [Tutorialspoint](https://www.tutorialspoint.com/data_structures_algorithms/shell_sort_algorithm.htm)
+
+==SLIDE==
+Title: Shell Sort Principle
+- Põhimõte
+-- Sorteerib omavahel kaugel asuvaid elemente ja vähendab järk-järgult intervalli elementide vahel, mida tuleb võrrelda.
+-- Kasutab vaheaega alamjärjendite loomiseks ja sorteerib need sisestussortimise abil.
+- Allikas
+-- [Programiz](https://www.programiz.com/dsa/shell-sort)
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/shellsort/)
+
+==SLIDE==
+Title: Shell Sort Algorithm (Part 1)
+- 1. samm
+-- Vali vahe, et jagada järjend alamjärjenditeks.
+- 2. samm
+-- Sorteeri alamjärjendid sisestussortimise abil.
+- 3. samm
+-- Vähenda vaheaega ja korda protsessi.
+- Allikas
+-- [MakeUseOf](https://www.makeuseof.com/intro-to-shell-sort/)
+
+==SLIDE==
+Title: Shell Sort Algorithm (Part 2)
+- 4. samm
+-- Jätka vahe vähendamist ja alamjärjendite sorteerimist, kuni vahe on 1.
+- 5. samm
+-- Tee lõplik sisestussortimine vahega 1.
+- Allikas
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/shell-sort)
+
+==SLIDE==
+Title: Time Complexity of Shell Sort
+- Parima juhu ajakompleksus: Sõltub vahe järjestusest.
+- Halvima juhu ajakompleksus: O(n^2) või O(n(log n)^2), sõltuvalt vahe järjestusest.
+- Keskmine juhu ajakompleksus: Sõltub vahe järjestusest.
+- Allikas
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/shellsort/)
+
+==SLIDE==
+Title: Introduction to Heap Sort
+- Definitsioon
+-- Võrdlusel põhinev sortimistehnika
+-- Põhineb binaarse kuhja andmestruktuuril
+- Kuidas see töötab
+-- Visualiseerib massiivi elemente kui erilist tüüpi täielikku binaarpuud, mida nimetatakse kuhjaks
+-- Korraldab elemendid sortimiseks massiivis binaarseks kuhjaks, korduvalt suurimat elementi liigutades
+
+==SLIDE==
+Title: Heap Sort Principle
+- Sortimismeetod
+-- Võrdlusel põhinev
+- Protsess
+-- Loob kuhja sisendmassiivist
+-- Sorteerib massiivi, kasutades ära kuhja omadusi
+- Kasutamine
+-- Efektiivne suurte andmekogumite jaoks
+
+==SLIDE==
+Title: Heap Sort Algorithm (Part 1)
+- Loo binaarne kuhj
+-- Tee sisendmassiiv kuhjaks (Heapify)
+- Eemalda elemendid
+-- Eemalda kuhjast maksimaalne element
+-- Asenda see kuhja viimase elemendiga
+-- Tee vähendatud kuhj kuhjaks (Heapify)
+
+==SLIDE==
+Title: Heap Sort Algorithm (Part 2)
+- Korda protsessi
+-- Jätka, kuni kuhj on tühi
+-- Massiiv on nüüd sorteeritud
+- Näide
+-- [Viita sobivale näitele esitatud linkidelt]
+- Implementatsioon
+-- Saab implementeerida erinevates programmeerimiskeeltes nagu Python, C++, Java, C
+
+==SLIDE==
+Title: Time Complexity of Heap Sort
+- Parim juhtum
+-- O(n log n) - Tasakaalustatud binaarse kuhja jaoks
+- Keskmine juhtum
+-- O(n log n) - Logaritmiline aeg iga n elemendi jaoks
+- Halvim juhtum
+-- O(n log n) - Isegi kui sisend on sorteeritud või pööratud
+- Märkus
+-- Heap Sort on efektiivsem võrreldes võrdlusel põhinevate sortidega nagu Bubble Sort ja Insertion Sort
+
+==SLIDE==
+Title: Introduction to Counting Sort
+- Definition
+-- Counting Sort on mitte-võrdlusel põhinev sortimisalgoritm, mis sobib piiratud hulga sisendväärtuste jaoks. See on efektiivne, kui sisendväärtuste vahemik on väike võrreldes sorteeritavate elementide arvuga.
+- Characteristics
+-- See loendab iga erineva elemendi sagedust sisendmassiivis ja kasutab seda teavet elementide õigesse järjestusse paigutamiseks.
+-- See on eriti kasulik täisarvude või kategooriliste andmete sortimisel.
+
+==SLIDE==
+Title: Counting Sort Principle
+- Working Principle
+-- Algoritm töötab, loendades iga unikaalse elemendi esinemisi sisendmassiivis ja kasutades neid loendeid elemendi indeksi arvutamiseks väljundmassiivis.
+-- See säilitab võrdsete elementide järjekorra, muutes selle stabiilseks sortimisalgoritmiks.
+- Range of Input Values
+-- See toimib kiiremini kui võrdlusel põhinevad sortimisalgoritmid, nagu ühendamissort ja kiirsort, eriti kui sisendi vahemik on sisendite arvu järjekorras.
+
+==SLIDE==
+Title: Counting Sort Algorithm - Part 1
+- Initialization
+-- Leidke antud massiivist maksimaalne element.
+-- Alustage countArray[] pikkusega max+1, kus kõik elemendid on 0.
+- Counting Occurrences
+-- Salvestage sisendmassiivi iga unikaalse elemendi loend vastavatesse indeksitesse countArray[]-s.
+-- Arvutage countArray[] elementide eelsumma, et aidata sisendmassiivi elemente õiges indeksis väljundmassiivis paigutada.
+
+==SLIDE==
+Title: Counting Sort Algorithm - Part 2
+- Creating Output Array
+-- Itereerige sisendmassiivi lõpust ja uuendage outputArray-d countArray põhjal.
+-- Võrdsete elementide järjekord säilib, kuna sisendmassiivi läbitakse lõpust, muutes sortimisalgoritmi stabiilseks.
+- Final Output
+-- Lõplik väljund on sorteeritud massiiv, kus elemendid on paigutatud kas kasvavas või kahanevas järjekorras, sõltuvalt nõudest.
+
+==SLIDE==
+Title: Time Complexity of Counting Sort
+- Time Complexity
+-- Counting Sorti ajaline keerukus on O(N+M), kus N ja M on vastavalt inputArray[] ja countArray[] suurused.
+-- Sellel on sama ajaline keerukus halvimal, keskmisel ja parimal juhul.
+- Auxiliary Space
+-- Algoritm vajab O(N+M) lisaruumi, kus N ja M on vastavalt outputArray[] ja countArray[] poolt võetud ruum.
+- Efficiency
+-- Counting sort on efektiivne ja üldiselt toimib kiiremini kui kõik võrdlusel põhinevad sortimisalgoritmid, eriti kui sisendi vahemik on sisendite arvu järjekorras.
+
+==SLIDE==
+Title: Introduction to Bucket Sort
+- Definitsioon
+-- Sortimistehnika, mis hõlmab elementide jagamist erinevatesse rühmadesse või koppadesse.
+-- Tuntud ka kui bin sort.
+- Kuidas see töötab
+-- Jaotab massiivi elemendid mitmesse koppa.
+-- Iga kopp sorteeritakse seejärel eraldi.
+- Allikas
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/bucket-sort-2/)
+-- [Medium by Karuna Sehgal](https://medium.com/karuna-sehgal/an-introduction-to-bucket-sort-62aa5325d124)
+
+==SLIDE==
+Title: Bucket Sort Principle
+- Põhimõte
+-- Töötab, jaotades massiivi elemendid mitmesse koppa.
+-- Kopad sorteeritakse seejärel eraldi, kasutades erinevat sortimisalgoritmi või rakendades rekursiivselt kopa sortimise algoritmi.
+- Allikas
+-- [Simplilearn](https://www.simplilearn.com/tutorials/data-structure-tutorial/bucket-sort-algorithm)
+-- [Programiz](https://www.programiz.com/dsa/bucket-sort)
+
+==SLIDE==
+Title: Bucket Sort Algorithm (Part 1)
+- 1. samm
+-- Määra kasutatavate koppade arv.
+- 2. samm
+-- Sisesta elemendid koppadesse.
+- 3. samm
+-- Sorteeri iga kopp eraldi.
+- Allikas
+-- [Wikipedia](https://en.wikipedia.org/wiki/Bucket_sort)
+
+==SLIDE==
+Title: Bucket Sort Algorithm (Part 2)
+- 4. samm
+-- Ühenda sorteeritud kopad, et saada sorteeritud massiiv.
+- Allikas
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/bucket-sort-2/)
+
+==SLIDE==
+Title: Time Complexity of Bucket Sort
+- Parima juhu ajakompleksus: O(n + k)
+-- Ilmneb, kui elemendid on ühtlaselt jaotatud.
+- Halvima juhu ajakompleksus: O(n^2)
+-- Ilmneb, kui kõik elemendid pannakse ühte koppa.
+- Keskmine juhu ajakompleksus: O(n + n^2/k + k)
+-- Kus k on koppade arv.
+- Allikas
+-- [Programiz](https://www.programiz.com/dsa/bucket-sort)
+
+==SLIDE==
+Title: Introduction to Radix Sort
+- Definitsioon
+-- Mitte-võrdlev täisarvude sortimise algoritm.
+-- Vältib võrdlemist, jaotades elemente kottidesse vastavalt nende kantseleile.
+- Ajalugu
+-- Pärineb aastast 1887, Herman Hollerithi töö tabuleerimismasinate kallal.
+-- Kasutatud löögikaartide sortimiseks juba aastast 1923.
+- Kaasaegne kasutus
+-- Rakendatud binaarsete stringide ja täisarvude kogumitele.
+-- Osutunud mõnes võrdluses kiiremaks kui teised üldotstarbelised sortimisalgoritmid.
+
+==SLIDE==
+Title: Radix Sort Principle
+- Tüüp: Mitte-võrdlev sortimise algoritm.
+- Põhiidee:
+-- Elemente jaotatakse kottidesse vastavalt nende kantseleile.
+-- Elementide puhul, millel on rohkem kui üks oluline number, korratakse kottidesse jaotamise protsessi iga numbri jaoks.
+-- Säilitab eelmise sammu järjestuse, kuni kõiki numbreid on arvesse võetud.
+- Leksikograafilised andmed:
+-- Piiratud leksikograafiliste andmetega nagu täisarvud ja stringid.
+
+==SLIDE==
+Title: Radix Sort Algorithm - LSD and MSD
+- Vähim oluline number (LSD)
+-- Alustab sortimist parempoolseimast numbrist.
+-- Sobib erineva pikkusega täisarvude ja stringide sortimiseks.
+-- Tavaliselt stabiilsed sortimised.
+- Kõige olulisem number (MSD)
+-- Alustab sortimist vasakpoolseimast numbrist.
+-- Sobib stringide või fikseeritud pikkusega täisarvude esituste sortimiseks.
+-- Ei pruugi olla stabiilne, kui peab säilitama võtmete algse järjestuse.
+- Muutuva pikkusega sisendi käsitlemine:
+-- LSD sortimised saavad grupeerida pikkuse järgi, sortida iga rühma ja seejärel ühendada rühmad suuruse järjekorras.
+-- MSD sortimised peavad kõik lühemad võtmed 'laiendama' suurima võtme suuruseks ja sortima neid vastavalt.
+
+==SLIDE==
+Title: Radix Sort Algorithm - Implementation
+- Rakenduse variandid:
+-- Kohapealsed MSD radix sort rakendused.
+-- Binaarne MSD radix sort või binaarne kiirsortimine.
+-- Stabiilsed MSD radix sort rakendused nõuavad sisendmassiiviga sama suurust mälupuhvrit.
+- Hibridlähenemised:
+-- Kui binid muutuvad väikeseks, tuleks kasutada teisi sortimisalgoritme, nagu sisestamise sortimine.
+-- Hea sisestamise sortimise rakendused võivad radix sorti oluliselt kiirendada.
+- Rakendamine paralleelarvutustes:
+-- Iga bini saab sortida sõltumatult, sobib paralleelarvutusteks.
+
+==SLIDE==
+Title: Time Complexity of Radix Sort
+- Ajaline keerukus: O(nw)
+-- Kus n on võtmete arv ja w on võtme pikkus.
+- LSD variandid võivad saavutada w alampiiri 'keskmise võtme pikkuse' jaoks, kui jagavad muutuva pikkusega võtmed rühmadesse.
+- Optimeeritud radix sortimised on domeenides, mis neile sobivad, väga kiired, kuid on piiratud leksikograafiliste andmetega.
+
+==SLIDE==
+Title: Introduction to Tim Sort
+- Definition
+-- Hübriidne, stabiilne sortimisalgoritm, mis on tuletatud ühendamissordist ja sisestamissordist.
+-- Loodud selleks, et toimida hästi paljudel erinevatel reaalmaailma andmetüüpidel.
+- How it works
+-- Jagab massiivi alammassiivideks ja sorteerib neid, kasutades ühendamissordi ja sisestamissordi kombinatsiooni.
+- Source
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/timsort/)
+-- [Wikipedia](https://en.wikipedia.org/wiki/Timsort)
+
+==SLIDE==
+Title: Tim Sort Principle
+- Principle
+-- Kasutab ideed, et reaalmaailma andmekogumid sisaldavad peaaegu alati juba järjestatud alamjadasid.
+-- Sorteerib optimaalselt erinevaid reaalmaailma andmeid, ühendades ühendamissordi ja sisestamissordi põhimõtteid.
+- Source
+-- [Infopulse](https://www.infopulse.com/blog/timsort-sorting-algorithm)
+-- [Javatpoint](https://www.javatpoint.com/tim-sort)
+
+==SLIDE==
+Title: Tim Sort Algorithm (Part 1)
+- Step 1
+-- Jagage massiiv väikesteks segmentideks või jooksudeks.
+- Step 2
+-- Sorteerige jooksud, kasutades sisestamissorti.
+- Step 3
+-- Ühendage jooksud, kasutades modifitseeritud ühendamissorti.
+- Source
+-- [Medium by Muskan Vaswan](https://muskanvaswan.medium.com/tim-sort-48bffd550a9b)
+
+==SLIDE==
+Title: Tim Sort Algorithm (Part 2)
+- Step 4
+-- Jätkake jooksude ühendamist, kuni kogu massiiv on sorteeritud.
+- Source
+-- [GeeksforGeeks](https://www.geeksforgeeks.org/timsort/)
+
+==SLIDE==
+Title: Time Complexity of Tim Sort
+- Best-case time complexity: O(n log n)
+- Worst-case time complexity: O(n log n)
+- Average-case time complexity: O(n log n)
+- Source
+-- [Wikipedia](https://en.wikipedia.org/wiki/Timsort)
+
+==SLIDE==
+Title: Practical Considerations - Stability
+- Definitsioon
+-- Stabiilsus sortimisalgoritmides tähendab võrdsete elementide suhtelise järjekorra säilitamist sorteeritud väljundis
+- Tähtsus
+-- Oluline, kui sorteeritakse võtmepaare, kus dubleerivad võtmed on võimalikud
+-- Pakub järjepidevaid ja ennustatavaid sortimistulemusi
+- Näited
+-- Mullisortimine on stabiilne, kuhjasortimine ei ole stabiilne
+
+==SLIDE==
+Title: Practical Considerations - Space Complexity
+- Definitsioon
+-- Ruumikompleksus määrab, kui palju lisamälu on sortimisalgoritmi poolt vajatud
+- Tähtsus
+-- Kriitiline algoritmi efektiivsuse optimeerimiseks, eriti süsteemides, kus mälu on piiratud
+- Kaalutlused
+-- Mõned algoritmid, nagu ühendsortimine, vajavad lisaruumi, samas kui teised, nagu kuhjasortimine, sorteerivad kohapeal
+
+==SLIDE==
+Title: Practical Considerations - Adaptivity
+- Definitsioon
+-- Sortimisalgoritm on kohanduv, kui see kasutab ära juba 'sorteeritud' elemente järjendis, mida tuleb sorteerida
+- Tähtsus
+-- Kohanduvad algoritmid võivad olla osaliselt sorteeritud andmetel tõhusamad
+- Näited
+-- Sisestussortimine on kohanduv, valiksortimine ei ole kohanduv
+
+==SLIDE==
+Title: Practical Considerations - Implementation Nuances
+- Nüansside Kaalutlemine
+-- Iga sortimisalgoritmi nüansside mõistmine on tõhusaks rakendamiseks kriitiline
+- Lihtsus vs Efektiivsus
+-- Lihtsad algoritmid nagu mullisortimine on lihtne rakendada, kuid ei pruugi olla suurte andmekogumite jaoks efektiivsed
+- Õige Algoritmi Valimine
+-- Sortimisalgoritmi valik sõltub erinevatest teguritest, sealhulgas andmete suurusest, struktuurist ja soovitud aja- ja ruumikompleksusest
+
